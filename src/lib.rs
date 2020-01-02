@@ -3,11 +3,11 @@ use std::convert::TryFrom;
 
 #[derive(Debug, Serialize)]
 pub struct Header {
-    pub version: i32,
+    pub version: u8, //currently this must be 1
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub stop_signal: Option<i32>,
+    pub stop_signal: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub cont_signal: Option<i32>,
+    pub cont_signal: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub click_events: Option<bool>,
 }
@@ -24,15 +24,15 @@ pub struct Block {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub border: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub border_top: Option<i32>,
+    pub border_top: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub border_bottom: Option<i32>,
+    pub border_bottom: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub border_left: Option<i32>,
+    pub border_left: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub border_right: Option<i32>,
+    pub border_right: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub min_width: Option<i32>,
+    pub min_width: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub align: Option<Align>,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -44,7 +44,7 @@ pub struct Block {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub separator: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub separator_block_width: Option<i32>,
+    pub separator_block_width: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub markup: Option<Markup>,
 }
@@ -53,14 +53,14 @@ pub struct Block {
 pub struct Click {
     pub name: String,
     pub instance: Option<String>,
-    pub x: i32,
-    pub y: i32,
+    pub x: u32,
+    pub y: u32,
     pub button: Button,
     pub event: u32,
-    pub relative_x: i32,
-    pub relative_y: i32,
-    pub width: i32,
-    pub height: i32,
+    pub relative_x: u32,
+    pub relative_y: u32,
+    pub width: u32,
+    pub height: u32,
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]

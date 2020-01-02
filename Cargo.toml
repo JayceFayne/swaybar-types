@@ -1,6 +1,6 @@
 [package]
 name = "swaybar-types"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Jayce Fayne <jayce.fayne@mailbox.org>"]
 edition = "2018"
 description = "A library for building swaybar status commands in rust."
