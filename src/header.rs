@@ -1,4 +1,4 @@
-use serde_derive::Serialize;
+use serde::Serialize;
 
 #[derive(Debug, Serialize)]
 pub struct Header {
