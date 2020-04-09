@@ -15,26 +15,22 @@ pub struct Click {
     pub height: u32,
 }
 
+#[repr(u32)]
 #[derive(Debug, Copy, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(try_from = "u32")]
 #[serde(into = "u32")]
 pub enum Button {
-    Left,
-    Right,
-    Middle,
-    ScrollDown,
-    ScrollUp,
+    None = 0,
+    Left = 1,
+    Middle = 2,
+    Right = 3,
+    ScrollDown = 4,
+    ScrollUp = 5,
 }
 
 impl From<Button> for u32 {
-    fn from(value: Button) -> Self {
-        match value {
-            Button::Left => 1,
-            Button::Middle => 2,
-            Button::Right => 3,
-            Button::ScrollDown => 4,
-            Button::ScrollUp => 5,
-        }
+    fn from(button: Button) -> Self {
+        button as u32
     }
 }
 
@@ -43,6 +39,7 @@ impl TryFrom<u32> for Button {
 
     fn try_from(value: u32) -> Result<Self, Self::Error> {
         Ok(match value {
+            0 => Button::None,
             1 => Button::Left,
             2 => Button::Middle,
             3 => Button::Right,
