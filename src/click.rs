@@ -24,8 +24,10 @@ pub enum Button {
     Left = 1,
     Middle = 2,
     Right = 3,
-    ScrollDown = 4,
-    ScrollUp = 5,
+    WheelUp = 4,
+    WheelDown = 5,
+    WheelLeft = 6,
+    WheelRight = 7,
 }
 
 impl From<Button> for u32 {
@@ -43,8 +45,10 @@ impl TryFrom<u32> for Button {
             1 => Button::Left,
             2 => Button::Middle,
             3 => Button::Right,
-            4 => Button::ScrollDown,
-            5 => Button::ScrollUp,
+            4 => Button::WheelUp,
+            5 => Button::WheelDown,
+            6 => Button::WheelLeft,
+            7 => Button::WheelRight,
             _ => return Err(format!("click '{}' not implemented", value)),
         })
     }
