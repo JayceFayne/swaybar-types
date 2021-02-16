@@ -20,7 +20,7 @@ pub struct Block {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub border_right: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub min_width: Option<u32>,
+    pub min_width: Option<Width>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub align: Option<Align>,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -50,4 +50,11 @@ pub enum Align {
 pub enum Markup {
     Pango,
     None,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum Width {
+    Pixels(u32),
+    Text(String),
 }
