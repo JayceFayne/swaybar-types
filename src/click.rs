@@ -2,11 +2,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Click {
-    pub name: String,
+    pub name: Option<String>,
     pub instance: Option<String>,
     pub x: u32,
     pub y: u32,
     pub button: Button,
+    #[serde(default)]
     pub event: u32,
     pub relative_x: u32,
     pub relative_y: u32,
